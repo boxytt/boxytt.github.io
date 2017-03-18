@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="结构
+静态存储顺序表
+动态存储顺序表
+动态存储顺序表
+无头结点的单链表
+带头结点的单链表
+带头结点的静态链表
+带头结点的双向循环链表
+
+基本操作
+初始化表为空表
+销毁表
+清空表
+判断表是否为空表
+获取表的长度
+获取指定下标的元素
+获取指定元素的下标
+判断元素是否在表中
+获取直接后继
+获取直接前驱
+在">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="boxytt">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="线性表结构和操作"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="kt&#39;s blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>线性表结构和操作 - kt&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/img/favicon.png">
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">kt404.cn</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/EasierInSTU">
+                            
+                                EasierInSTU
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>线性表结构和操作</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-03-15
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><ul>
+<li><a href="线性表结构和操作.md#静态存储顺序表">静态存储顺序表</a></li>
+<li><a href="线性表结构和操作.md#动态存储顺序表">动态存储顺序表</a></li>
+<li><a href="线性表结构和操作.md#动态存储顺序表">动态存储顺序表</a></li>
+<li><a href="线性表结构和操作.md#无头结点的单链表">无头结点的单链表</a></li>
+<li><a href="线性表结构和操作.md#带头结点的单链表">带头结点的单链表</a></li>
+<li><a href="线性表结构和操作.md#带头结点的静态链表">带头结点的静态链表</a></li>
+<li><a href="线性表结构和操作.md#带头结点的双向循环链表">带头结点的双向循环链表</a></li>
+</ul>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><ul>
+<li>初始化表为空表</li>
+<li>销毁表</li>
+<li>清空表</li>
+<li>判断表是否为空表</li>
+<li>获取表的长度</li>
+<li>获取指定下标的元素</li>
+<li>获取指定元素的下标</li>
+<li>判断元素是否在表中</li>
+<li>获取直接后继</li>
+<li>获取直接前驱</li>
+<li>在指定下标之前插入元素</li>
+<li>删除指定下标的元素</li>
+</ul>
+<h1 id="静态存储顺序表"><a href="#静态存储顺序表" class="headerlink" title="静态存储顺序表"></a><a href="线性表结构和操作.md#结构">静态存储顺序表</a></h1><h2 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;      
+#define ListSize 100    //最大允许长度
+typedef struct {
+    Listata data[ListSize];    //存储空间
+    int length;        //当前元素个数
+}SeqList;
+</code></pre><h2 id="初始化表为空表"><a href="#初始化表为空表" class="headerlink" title="初始化表为空表"></a>初始化表为空表</h2><pre><code>void InitList(SeqList &amp;L)
+{//初始化表L为空表
+    L.length = 0;
+}
+</code></pre><h2 id="销毁表"><a href="#销毁表" class="headerlink" title="销毁表"></a>销毁表</h2><pre><code>void DestoryList(SeqList &amp;L)  
+{//回收线性表L  
+    L.length = 0;  
+}
+</code></pre><h2 id="清空表"><a href="#清空表" class="headerlink" title="清空表"></a>清空表</h2><pre><code>void ClearList(SeqList &amp;L)
+{//清空线性表L
+    L.length = 0;
+}
+</code></pre><h2 id="判断表是否为空表"><a href="#判断表是否为空表" class="headerlink" title="判断表是否为空表"></a>判断表是否为空表</h2><pre><code>void ListEmpty(SeqList L)
+{//若线性表L为空返回1，否则返回0
+    return (!L.length);
+}
+</code></pre><h2 id="获取表的长度"><a href="#获取表的长度" class="headerlink" title="获取表的长度"></a>获取表的长度</h2><pre><code>void ListLength(SeqList L)
+{//函数值是表L的长度
+    return L.length;
+}
+</code></pre><h2 id="获取指定下标的元素"><a href="#获取指定下标的元素" class="headerlink" title="获取指定下标的元素"></a>获取指定下标的元素</h2><pre><code>ListData GetElem(SeqList L, int i)
+{//函数值为表L中第i个元素
+    if (i &gt;= 1 &amp;&amp; i&lt;= L.length) {
+        return L.data[i-1];
+    } else {
+        return NULL;
+    }
+}
+</code></pre><h2 id="获取指定元素的下标"><a href="#获取指定元素的下标" class="headerlink" title="获取指定元素的下标"></a>获取指定元素的下标</h2><pre><code>int LocateElem(SeqList L, ListData x)
+{//查找x在表L中位置，若查找成功，返回x的位置，否则返回-1
+    int i = 0;
+    while (i &lt; L.length &amp;&amp; L.data[i] != x) i++;        //查找
+    if (i &lt; L.length) return i;        //成功
+        else return -1;        //失败
+}
+</code></pre><h2 id="判断元素是否在表中"><a href="#判断元素是否在表中" class="headerlink" title="判断元素是否在表中"></a>判断元素是否在表中</h2><pre><code>int IsIn(SeqList L, ListData x)
+{//判断x是否在表L中，x在L中返回1，否则返回0
+    int i = 0, found = 0;
+    while (i &lt; L.length &amp;&amp; !found)
+        if (L.data[i] != x) i++;
+            else found = 1;
+    return found;
+}
+</code></pre><h2 id="获取直接后继"><a href="#获取直接后继" class="headerlink" title="获取直接后继"></a>获取直接后继</h2><pre><code>int NextElem(SeqList L, ListData x)
+{//如果x在表L中且有直接后继，函数值返回其直接后继的位置，否则返回-1
+    int i = 0;
+    while (i &lt; L.length &amp;&amp; L.data[i] != x) i++;     //查找
+    if (i &lt; L.length - 1) return i+1;
+        else return -1;
+}
+</code></pre><h2 id="获取直接前驱"><a href="#获取直接前驱" class="headerlink" title="获取直接前驱"></a>获取直接前驱</h2><pre><code>int PriorElem(SeqList L, ListData x)
+{//如果x在表L中且有直接前驱，函数值返回其直接前驱的位置，否则返回-1
+    int i = 0;
+    while(i &lt; L.length &amp;&amp; L.data[i] != x) i++;
+    if (i &gt; 0 &amp;&amp; i &lt; L.length) return i-1;
+        else return -1;
+}
+</code></pre><h2 id="在指定下标之前插入元素"><a href="#在指定下标之前插入元素" class="headerlink" title="在指定下标之前插入元素"></a>在指定下标之前插入元素</h2><pre><code>int ListInsert(SeqList &amp;L, int i, ListData x)
+{//在顺序表L中第i个元素之前插入x，插入成功返回1，不成功返回0
+    if (i &lt; 1 || i &gt; L.length + 1 || L.length == ListSize) return 0;
+        else {
+            for (int j = L.length; j &gt; i - 1; j--)    //后移
+                L.data[j] = L.data[j - 1];
+            L.data[i - 1] = x;    //插入
+            L.length++;
+            return 1;
+        }
+}
+</code></pre><h2 id="删除指定下标的元素"><a href="#删除指定下标的元素" class="headerlink" title="删除指定下标的元素"></a>删除指定下标的元素</h2><pre><code>int ListDelete(SeqList &amp;L, int i )
+{//在顺序表L中删除第i个元素，成功返回1，否则返回0
+    if (i &lt; 1 || i &gt; L.length) return 0;
+    for (int j = i - 1; j &lt; L.length - 1; j++)
+        L.data[j] = L.data[j + 1];
+    L.length--;
+    return 1;
+}
+</code></pre><h1 id="动态存储顺序表"><a href="#动态存储顺序表" class="headerlink" title="动态存储顺序表"></a><a href="线性表结构和操作.md#结构">动态存储顺序表</a></h1><h2 id="结构定义-1"><a href="#结构定义-1" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>#define LIST_INIT_SIZE 10     //线性表存储空间的初始分配量
+#define LISTINCREMENT 5        //线性表存储空间的分配增量
+typedef struct {
+    ListData *data;        //存储空间基址
+    int length;        //顺序表当前长度
+    int listsize;    //当前分配的存储空间(以sizeof(ListData)为单位)
+}SqList;
+</code></pre><h2 id="初始化表为空表-1"><a href="#初始化表为空表-1" class="headerlink" title="初始化表为空表"></a>初始化表为空表</h2><pre><code>int InitList(SqList &amp;L)
+{//分配指定大小的存储空间给顺序表
+    L.data = (ListData *)malloc(LIST_INIT_SIZE * sizeof(ListData));    
+    if (!L.data) exit(0);    //存储分配失败
+    L.length = 0;            //当前长度初始化为0
+    L.listsize = LIST_INIT_SIZE;    //指定分配的存储容量
+    return 1;
+}
+</code></pre><h2 id="销毁表-1"><a href="#销毁表-1" class="headerlink" title="销毁表"></a>销毁表</h2><pre><code>int DestoryList(SqList &amp;L)
+{//先释放空间，然后置空
+    free(L.data);
+    L.length = 0;
+    L.listsize = 0;
+    return 1;
+}
+</code></pre><h2 id="清空表-1"><a href="#清空表-1" class="headerlink" title="清空表"></a>清空表</h2><pre><code>int ClearList(SqList &amp;L)
+{//清空线性表L
+    L.length = 0;
+    return 1;
+}
+</code></pre><h2 id="判断表是否为空"><a href="#判断表是否为空" class="headerlink" title="判断表是否为空"></a>判断表是否为空</h2><pre><code>int ListEmpty(SqList L)
+{//判断线性表L是否为空，若为空返回1，否则返回0
+    return !L.length;
+}
+</code></pre><h2 id="获取表的长度-1"><a href="#获取表的长度-1" class="headerlink" title="获取表的长度"></a>获取表的长度</h2><pre><code>int ListLength(SqList L)
+{//L.length记录当前顺序表的长度，直接返回
+    return L.length;
+}
+</code></pre><h2 id="获取指定下标的元素-1"><a href="#获取指定下标的元素-1" class="headerlink" title="获取指定下标的元素"></a>获取指定下标的元素</h2><pre><code>ListData GetElem(SqList L, int i)
+{//函数值为表L中第i个元素
+    if (i &gt;= 1 &amp;&amp; i &lt;= L.length) return (*L.data+i-1);
+        else return NULL;
+}
+</code></pre><h2 id="获取指定元素的下标-1"><a href="#获取指定元素的下标-1" class="headerlink" title="获取指定元素的下标"></a>获取指定元素的下标</h2><pre><code>int LocateElem(SqList L, ListData x)
+{//查找x在表L中的位置，若查找成功，返回x的位置，否则返回-1
+    int i = 0;
+    while (i &lt; L.length &amp;&amp; *(L.data + i) != x) i++;
+    if (i &lt; L.length) return i;
+        else return -1;
+}
+</code></pre><h2 id="判断元素是否在表中-1"><a href="#判断元素是否在表中-1" class="headerlink" title="判断元素是否在表中"></a>判断元素是否在表中</h2><pre><code>int IsIn(SqList L, ListData x)
+{//判断x是否在表L中，x在L中返回1，否则返回0
+    int i = 0, found = 0;
+    while (i &lt; L.length &amp;&amp; !found)
+        if (*(L.data + i) != x) i++;
+            else found = 1;
+    return found;
+}
+</code></pre><h2 id="获取直接后继-1"><a href="#获取直接后继-1" class="headerlink" title="获取直接后继"></a>获取直接后继</h2><pre><code>int NextElem(SqList L, ListData x)
+{//如果x在表L中且有直接后继，函数值返回其直接后继的位置，否则返回-1
+    int i = 0;
+    while (i &lt; L.length &amp;&amp; *(L.data + i) != x) i++;
+    if (i &lt; L.length - 1) return i + 1;
+        else return -1;
+}
+</code></pre><h2 id="获取直接前驱-1"><a href="#获取直接前驱-1" class="headerlink" title="获取直接前驱"></a>获取直接前驱</h2><pre><code>int PriorElem(SqList L, ListData x)
+{//如果x在表L中且有直接前驱，函数值返回其直接前驱的位置，否则返回-1
+    int i = 0;
+    while (i &lt; L.length &amp;&amp; *(L.data) != x) i++;
+    if (i &gt; 0 &amp;&amp; i &lt; L.length) return i - 1;
+        else return -1;
+}
+</code></pre><h2 id="在指定下标之前插入元素-1"><a href="#在指定下标之前插入元素-1" class="headerlink" title="在指定下标之前插入元素"></a>在指定下标之前插入元素</h2><pre><code>int ListInsert(SqList &amp;L, int i, ListData e)
+{//在顺序表L中第i个元素之前插入e，插入成功返回1，不成功返回0
+    ListData *newbase, *q, *p;
+    if (i &lt; 1 || i &gt; L.length + 1) return 0; 
+    if (L.length == L.listsize) {    //当前储存空间已满，增加分配空间
+        //realloc改变L.data所指内存的大小，原始所指内存中的数据不变
+        newbase = (ListData *)realloc(L.data, (L.listsize + LISTINCREMENT) * sizeof(ListData));
+        if (!newbase) exit(0);         //申请新空间失败
+        L.data = newbase;    //新基址
+        L.listsize += LISTINCREMENT;    //增加存储容量
+    }
+    q = L.data + i - 1;        //指定插入的位置
+    for (p = L.data + L.length - 1; p &gt;= q; --p)
+        *(p + 1) = *p;        //q之后的元素右移    
+    *q = e;        //插入e
+    ++L.length;        //表长增1
+    return 1;
+}
+</code></pre><h2 id="删除指定下标的元素-1"><a href="#删除指定下标的元素-1" class="headerlink" title="删除指定下标的元素"></a>删除指定下标的元素</h2><pre><code>int ListDelete(Sqlist &amp;L, int i)
+{//在顺序表L中删除第i个元素，成功返回1，否则返回0
+    ListData *p, *q;
+    if (i &lt; 1 || i &gt; L.length) return 0;
+    p = L.data + i - 1; // p为被删除元素的位置
+    q = L.data + L.length - 1;    //q为表尾元素的位置
+    for (++p; p &lt;= q; ++p)
+        *(p - 1) = *p; // 被删除元素之后的元素左移
+    L.length--;
+    return 1;
+}
+</code></pre><h1 id="不带头结点的单链表"><a href="#不带头结点的单链表" class="headerlink" title="不带头结点的单链表"></a><a href="线性表结构和操作.md#结构">不带头结点的单链表</a></h1><h2 id="结构定义-2"><a href="#结构定义-2" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;    
+typedef struct node {            //链表结点
+    ListData data;                //结点数据域
+    struct node *next;            //结点链域
+}ListNode;
+typedef ListNode *LinkList;        //链表头指针
+</code></pre><h2 id="初始化表为空表-2"><a href="#初始化表为空表-2" class="headerlink" title="初始化表为空表"></a>初始化表为空表</h2><pre><code>void InitList(LinkList &amp;first)
+{//初始化单链表first为空表
+    first = NULL;
+}
+</code></pre><h2 id="销毁表-2"><a href="#销毁表-2" class="headerlink" title="销毁表"></a>销毁表</h2><pre><code>void DestoryList(LinkList &amp;first)
+{//删去单链表first的所有结点
+    ListNode *q;
+    while (fitst) {    //当链表不为空时，循环逐个删去所有结点
+        q = fitst;
+        fitst = fitst-&gt;next;
+        free(q); //释放
+    }
+}
+</code></pre><h2 id="清空表-2"><a href="#清空表-2" class="headerlink" title="清空表"></a>清空表</h2><pre><code>void ClearList(LinkList &amp;first)
+{//删去单链表first中所有结点
+    ListNode *q;
+    while (first) {
+        q = first;
+        first = first-&gt;next;
+        free(q);
+    }
+}
+</code></pre><h2 id="判断表是否为空-1"><a href="#判断表是否为空-1" class="headerlink" title="判断表是否为空"></a>判断表是否为空</h2><pre><code>int ListEmpty(LinkList first)
+{//若单链表first为空则返回1，否则返回0
+    return !first;
+}
+</code></pre><h2 id="获取表的长度-2"><a href="#获取表的长度-2" class="headerlink" title="获取表的长度"></a>获取表的长度</h2><pre><code>int ListLength(LinkList first)
+{//函数值为单链表first长度
+    LinkList p = first;
+    int count = 0;
+    while (p) {
+        p = p-&gt;next;
+        count++:
+    }
+    return count;
+}
+</code></pre><h2 id="获取指定下标的元素-2"><a href="#获取指定下标的元素-2" class="headerlink" title="获取指定下标的元素"></a>获取指定下标的元素</h2><pre><code>ListData GetElem(LinkList first, int i)
+{//函数值返回单链表first中第i个元素值，不存在时返回NULL
+    LinkList p = first;
+    int j = 1;
+    while (p &amp;&amp; (j &lt; i)) {
+        p = p-&gt;next;
+        j++;
+    }
+    if (!p || (j &gt; i))
+        return NULL; //p空没找到；j&gt;i是输入的i&lt;1的情况
+    return p-&gt;data;
+}
+</code></pre><h2 id="获取指定元素的下标-2"><a href="#获取指定元素的下标-2" class="headerlink" title="获取指定元素的下标"></a>获取指定元素的下标</h2><pre><code>LinkList LocateElem(LinkList first, ListData x)
+{//在单链表first中搜索数据值为x的结点，成功返回x第一次出现的位置，否则返回NULL、
+    ListNode *p = first;
+    while (p &amp;&amp; (p-&gt;data != x)) 
+        p = p-&gt;next;
+    return p;
+}
+</code></pre><h2 id="判断元素是否在表中-2"><a href="#判断元素是否在表中-2" class="headerlink" title="判断元素是否在表中"></a>判断元素是否在表中</h2><pre><code>int IsIn(LinkList first, ListData x)
+{//若x在单链表first中函数返回1，否则返回0
+    ListNode *p =first;
+    while (p &amp;&amp; (p-&gt;data != x))
+        p = p-&gt;next;
+    return !(p == NULL);
+}
+</code></pre><h2 id="获取直接后继-2"><a href="#获取直接后继-2" class="headerlink" title="获取直接后继"></a>获取直接后继</h2><pre><code>LinkList NextElem(LinkList first, ListData x)
+{//函数值返回单链表first中值x的结点的直接后继结点地址，没有返回NULL
+    LinkList p = first;
+    while (p &amp;&amp; (p-&gt;data != x))
+        p = p-&gt;next;
+    if (!p || !p-&gt;next) return NULL;
+    return p-&gt;next;
+}
+</code></pre><h2 id="获取直接前驱-2"><a href="#获取直接前驱-2" class="headerlink" title="获取直接前驱"></a>获取直接前驱</h2><pre><code>LinkList PriorElem(LinkList first, ListData x)
+{//函数返回x的直接前驱的结点地址，没有返回NULL
+    LinkList p = first;
+    while (p &amp;&amp; p-&gt;next &amp;&amp; (p-&gt;next-&gt;data != x))
+        p = p-&gt;next;
+    if (!p || !p-&gt;next) return NULL;
+    return p;
+}
+</code></pre><h2 id="在指定下标之前插入元素-2"><a href="#在指定下标之前插入元素-2" class="headerlink" title="在指定下标之前插入元素"></a>在指定下标之前插入元素</h2><pre><code>int ListInsert(LinkList &amp;first, int i, ListData x)
+{//在单链表first中第i个元素结点之前插入元素x，成功返回1，否则返回0
+    newnode = (ListNode *)malloc(sizeof(ListNode));
+    newnode-&gt;data = x;
+    if (i == 1) {    //插入为第一个结点
+        newnode-&gt;next = first;    //新结点成为第一个结点
+        first = newnode;
+        return 1;
+    }
+    LinkList p = first;
+    int k = 1;
+    while (p &amp;&amp; k &lt; i-1) {    //找到第i-1个结点
+        p = p-&gt;next;    
+        k++;
+    }
+    if (!p || i &lt; 1) {
+        printf(&quot;无效的插入位置\n&quot;);    //终止插入
+        free(newnode);
+        return 0;
+    }
+    newnode-&gt;next = p-&gt;next;    
+    p-&gt;next = newnode;            //插在表中间或末尾
+    return 1;
+}
+</code></pre><h2 id="删除指定下标的元素-2"><a href="#删除指定下标的元素-2" class="headerlink" title="删除指定下标的元素"></a>删除指定下标的元素</h2><pre><code>int ListDelete(LinkList &amp;first , int i)
+{//在单链表first中删除第i个结点，删除成功返回1，否则返回0
+    if (first &amp;&amp; i == 1) {    //删除表中第1个结点
+        q = first;
+        first = first-&gt;next;
+    } else {
+        p = first;
+        while (p &amp;&amp; int k &lt; i-1) {    //找到第i-1个结点
+            p = p-&gt;next;
+            k++;
+        }
+        if (!p || !(p-&gt;next) || i &lt; 1) {    //找不到第i-1个结点
+            printf(&quot;无效的插入位置\n&quot;);
+            return 0；
+        } else {                    //删除中间结点或末尾结点元素
+            q = p-&gt;next;
+            p-&gt;next = q-&gt;next;
+        }
+    }
+    free(q);
+    return 1;
+}
+</code></pre><h1 id="带头结点的单链表"><a href="#带头结点的单链表" class="headerlink" title="带头结点的单链表"></a><a href="线性表结构和操作.md#结构">带头结点的单链表</a></h1><h2 id="结构定义-3"><a href="#结构定义-3" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;    
+typedef struct node {            //链表结点
+    ListData data;                //结点数据域
+    struct node *next;            //结点链域
+}ListNode;
+typedef ListNode *LinkList;        //链表头指针
+</code></pre><h2 id="初始化表为空表-3"><a href="#初始化表为空表-3" class="headerlink" title="初始化表为空表"></a>初始化表为空表</h2><pre><code>void InitList(LinkList &amp;first)
+{//初始化带头结点的单链表first为空表
+    first = (ListNode *)malloc(sizeof(ListNode));    //创建头结点
+    first-&gt;next = NULL;
+}
+</code></pre><h2 id="销毁表-3"><a href="#销毁表-3" class="headerlink" title="销毁表"></a>销毁表</h2><pre><code>void DestoryList(LinkList &amp;first)
+{//删去带头结点的单链表first中的所有结点，包括头结点
+    ListNode *q;
+    while (first) {    //当链不为空时，循环逐个删去所有结点
+        q = first;
+        first = first-&gt;next;
+        free(q);
+    }
+}
+</code></pre><h2 id="清空表-3"><a href="#清空表-3" class="headerlink" title="清空表"></a>清空表</h2><pre><code>void ClearList(LinkList &amp;first)
+{//删去带头结点的单链表first中所有的结点，保留头结点
+    ListNode *p, *q = first-&gt;next;    //这里是关键
+    while (q) {
+        p = q;
+        q = q-&gt;next;
+        free(p);
+    }
+    first-&gt;next = NULL;
+}
+</code></pre><h2 id="判断表是否为空-2"><a href="#判断表是否为空-2" class="headerlink" title="判断表是否为空"></a>判断表是否为空</h2><pre><code>void ListEmpty(LinkList first)
+{//若带头结点的单链表first为空则返回1，否则返回0
+    return !(first-&gt;next);
+}
+
+int ListLength(LinkList first)
+{//函数返回带头结点的单链表first的长度
+    LinkList p;
+    p = first-&gt;next;
+    int count = 0;
+    while (p) {
+        p = p-&gt;next;
+        count++;
+    }
+    return count;
+}
+</code></pre><h2 id="获取指定下标的元素-3"><a href="#获取指定下标的元素-3" class="headerlink" title="获取指定下标的元素"></a>获取指定下标的元素</h2><pre><code>ListData GetElem(LinkList first, int i )
+{//函数返回带头结点的单链表first第i个元素值。不存在返回NULL
+    LinkList p = first-&gt;next;
+    int j = 1;
+    while (p &amp;&amp; (j &lt; i)) {    //找到第i个元素
+        p = p-&gt;next;
+        j++;
+    }
+    if (!p || j &gt; i) return NULL;
+    return p-&gt;data;
+}
+</code></pre><h2 id="获取指定元素的下标-3"><a href="#获取指定元素的下标-3" class="headerlink" title="获取指定元素的下标"></a>获取指定元素的下标</h2><pre><code>LinkList LocateElem(LinkList first, ListData x)
+{//在带头结点的单链表first中搜索值为x的结点，成功返回x的位置，否则返回NULL
+    LinkList p = first-&gt;next;
+    while (p &amp;&amp; (p-&gt;data != x))
+        p = p-&gt;next;
+    return p;
+}
+</code></pre><h2 id="判断元素是否在表中-3"><a href="#判断元素是否在表中-3" class="headerlink" title="判断元素是否在表中"></a>判断元素是否在表中</h2><pre><code>int IsIn(LinkList first, ListData x)
+{//若x在带头结点的单链表first中，函数返回1，否则返回0
+    LinkList p = first-&gt;next;
+    while (p &amp;&amp; (p-&gt;data != x))
+        p = p-&gt;next;
+    return !(p == NULL);
+}
+</code></pre><h2 id="获取直接后继-3"><a href="#获取直接后继-3" class="headerlink" title="获取直接后继"></a>获取直接后继</h2><pre><code>LinkList NextElem(LinkList first, ListData x)
+{//函数返回带头结点的单链表first中x的直接后继的结点地址，没有则返回NULL
+    LinkList p = first-&gt;next;
+    while (p &amp;&amp; (p-&gt;data != x))
+        p = p-&gt;next;
+    if (!p || !p-&gt;next) return NULL;    //没有直接后继
+    return p-&gt;next;
+}
+</code></pre><h2 id="获取直接前驱-3"><a href="#获取直接前驱-3" class="headerlink" title="获取直接前驱"></a>获取直接前驱</h2><pre><code>LinkList PriorElem(LinkList first, ListData x)
+{//函数返回带头结点的单链表first中x的直接前驱的结点地址，没有则返回NULL
+    LinkList p = first-&gt;next;
+    while (p &amp;&amp; p-&gt;next &amp;&amp; (p-&gt;next-&gt;data != x))
+        p = p-&gt;next;
+    if (!p || !p-&gt;next) return NULL;    //没有直接前驱
+    return p;
+}
+</code></pre><h2 id="在指定下标之前插入元素-3"><a href="#在指定下标之前插入元素-3" class="headerlink" title="在指定下标之前插入元素"></a>在指定下标之前插入元素</h2><pre><code>int ListInsert(LinkList first, int i, ListData x)
+{//在带头结点的单链表first中第i个元素结点前插入元素x，成功则返回1，否则返回0
+    LinkList p = first-&gt;next;
+    int k = 1;
+    while (p &amp;&amp; k &lt; i-1) {            //找到第i-1个结点
+        p = p-&gt;next;
+        k++;
+    }
+    if (!p || i &lt; 1) {                //终止插入
+        printf(&quot;无效的插入位置\n&quot;);
+        return 0;
+    }
+    newnode = (ListNode *)malloc(sizeof(ListNode));    //创建新结点
+    newnode-&gt;data = x;
+    newnode-&gt;next = p-&gt;next;    //插入新结点
+    p-&gt;next = newnode;
+    return 1;
+}
+</code></pre><h2 id="删除指定下标的元素-3"><a href="#删除指定下标的元素-3" class="headerlink" title="删除指定下标的元素"></a>删除指定下标的元素</h2><pre><code>int ListDelete(LinkList first, int i)
+{//删除带头结点的单链表first的第i个元素，成功返回1，否则返回0
+    LinkList p = first-&gt;next;
+    int k = 1;
+    while (p &amp;&amp; k &lt; i-1) {    //找到第i-1个元素
+        p = p-&gt;next;
+        k++;
+    }
+    if (!p || !(p-&gt;next) || i &lt; 1) return 0;
+    //删除结点
+    LinkList q = p-&gt;next;
+    p-&gt;next = q-&gt;next;    
+    free(q);
+    return 1;
+}
+</code></pre><h1 id="带头结点的静态链表"><a href="#带头结点的静态链表" class="headerlink" title="带头结点的静态链表"></a><a href="线性表结构和操作.md#结构">带头结点的静态链表</a></h1><h2 id="结构定义-4"><a href="#结构定义-4" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>const int MaxSize = 100;    //静态链表大小
+
+typedef struct node {        //静态链表结点
+    ListData data;
+    int link;
+}SNode;
+
+typedef struct {            //静态链表
+    SNode Nodes[MaxSize];
+    int newptr;                //当前可分配空间首地址
+}SLinkList;
+</code></pre><h2 id="初始化表为空表-4"><a href="#初始化表为空表-4" class="headerlink" title="初始化表为空表"></a>初始化表为空表</h2><pre><code>void InitSpace(SLinkList &amp;Space)    //链表空间初始化(形成备用链表newptr)
+{//建立带头结点的备用链表
+    Space.newptr = 0;    //当前可分配空间从0开始
+    for (int i = 0; i &lt; MaxSize - 1; i++)
+        Space.Nodes[i].link = i + 1;    //构成备用链表
+    Space.Nodes[MaxSize - 1].link = -1;    //设置链尾    
+}
+
+void InitList(SLinkList &amp;Space, int &amp;Slink)
+{//初始化带头结点的静态链表Slink为空表
+    if (Space.newptr != -1) {
+        Slink = Space.newptr;
+        Space.newptr = Space.Nodes[Space.newptr].link;
+    }
+    Space.Nodes[Slink].link = -1;    //删除备用链表第一结点
+}
+</code></pre><h2 id="销毁表-4"><a href="#销毁表-4" class="headerlink" title="销毁表"></a>销毁表</h2><pre><code>void DestoryList(SLinkList &amp;Space, int &amp;Slink)
+{//删去带头结点的静态链表Slink所有结点，包括头结点
+    int q = Slink;                                //只需将销毁链插入到备用链表
+    while (Space.Nodes[Slink].link != -1)        //找链尾
+        Slink = Space.Nodes[Slink].link;
+    Space.Nodes[Slink].link = Space.newptr;        //链接链尾与备用链表表头
+    Space.newptr = q;                            //设置备用链表头指针为销毁链头指针
+    Slink = -1;
+}
+</code></pre><h2 id="清空表-4"><a href="#清空表-4" class="headerlink" title="清空表"></a>清空表</h2><pre><code>void ClearList(SLinkList &amp;Space, int Slink)
+{//清空带头结点的静态链表Slink，保留头结点
+    p = Space.Nodes[Slink].link;                //将清空链插入到备用链表
+    while (Space.Nodes[p].link != -1)        //找链尾
+        p = Space.Nodes[p].link;
+    Space.Nodes[p].link = Space.newptr;            //链尾和备用链表头相连
+    Space.newptr = Space.Nodes[Slink].link;        //设置备用链表头指针
+    Space.Nodes[Slink].link = -1;                //设置空链表尾指针
+}
+</code></pre><h2 id="判断表是否为空-3"><a href="#判断表是否为空-3" class="headerlink" title="判断表是否为空"></a>判断表是否为空</h2><pre><code>int ListEmpty(SLinkList &amp;Space, int Slink)
+{//若带头结点的静态链表Slink为空则返回1，否则返回0
+    return (Space.Nodes[Slink].link == -1);
+}
+</code></pre><h2 id="获取表的长度-3"><a href="#获取表的长度-3" class="headerlink" title="获取表的长度"></a>获取表的长度</h2><pre><code>int ListLength(Slink)
+{//函数返回带头结点的静态链表Slink的长度
+    int count = 0;
+    int q = Slink;
+    while (Space.Nodes[q].link != -1) {        //在链上移动，计数
+        q = Space.Nodes[q].link;
+        count++;
+    }
+    return count;
+}
+</code></pre><h2 id="获取指定下标的元素-4"><a href="#获取指定下标的元素-4" class="headerlink" title="获取指定下标的元素"></a>获取指定下标的元素</h2><pre><code>ListData GetElem(SLinkList &amp;Space, int Slink, int i)
+{//函数返回带头结点的静态链表Slink第i个元素值，不存在返回NULL
+    int j = 0, q = Slink;
+    while (q != -1 &amp;&amp; j &lt; i) {        //找第i个元素
+        q = Space.Nodes[q].link;
+        j++;
+    }
+    if (p = -1 || j &gt; i) return NULL;    //第i个元素不存在
+    return Space.Nodes[q].data;
+}
+</code></pre><h2 id="获取指定元素的下标-4"><a href="#获取指定元素的下标-4" class="headerlink" title="获取指定元素的下标"></a>获取指定元素的下标</h2><pre><code>int LocateElem(SLinkList &amp;Space, int Slink, ListData x)
+{//在带头结点的静态链表Slink中找值为x的结点，找到返回x的位置，否则返回-1
+    q = Space.Nodes[Slink].link;
+    while (q != -1 &amp;&amp; Space.Nodes[q].data != x)
+        q = Space.Nodes[q].link;
+    return q;
+}
+</code></pre><h2 id="判断元素是否在表中-4"><a href="#判断元素是否在表中-4" class="headerlink" title="判断元素是否在表中"></a>判断元素是否在表中</h2><pre><code>int IsIn(SLinkList &amp;Space, int Slink, ListData x)
+{//在带头结点的静态链表SLink中找值为x的结点，找到返回1，否则返回0
+    q = Space.Nodes[SLink].link;
+    while (q != -1 &amp;&amp; Space.Nodes[q].data != x)
+        q = Space.Nodes[q].link;
+    return !(q == -1)
+}
+</code></pre><h2 id="获取直接后继-4"><a href="#获取直接后继-4" class="headerlink" title="获取直接后继"></a>获取直接后继</h2><pre><code>LinkList NextElem(SLinkList &amp;Space, int Slink, ListData x)
+{//函数返回带头结点的静态链表Slink中x的直接后继地址，没有返回-1
+    q = Space.Nodes[Slink].link;
+    while (q != -1 &amp;&amp; Space.Nodes[q].data != x)        //找x
+        q = Space.Nodes[q].link;
+    if (q == -1 || Space.Nodes[q].link == -1) return -1;    //没有找到直接后继
+    return Space.Nodes[q].link;
+}
+</code></pre><h2 id="获取直接前驱-4"><a href="#获取直接前驱-4" class="headerlink" title="获取直接前驱"></a>获取直接前驱</h2><pre><code>LinkList PriorElem(SLinkList &amp;Space, int Slink, ListData x)
+{//函数返回带头结点的静态链表Slink中x的直接前驱地址，没有返回-1
+    q = Space.Nodes[Slink].link;
+    while (q != -1 &amp;&amp; Space.Nodes[q].link != -1 &amp;&amp; Space.Nodes[Space.Nodes[q].link].data != x)
+        q = Space.Nodes[q].link;
+    if (q == -1 || Space.Nodes[q].link == -1) return -1;
+    return q;
+}
+</code></pre><h2 id="在指定下标之前插入元素-4"><a href="#在指定下标之前插入元素-4" class="headerlink" title="在指定下标之前插入元素"></a>在指定下标之前插入元素</h2><pre><code>int ListInsert(SLinkList &amp;Space, int Slink, int i, ListData x)
+{//在带头结点的静态链表Slink第i个结点前插入x，插入成功返回1，否则返回0
+    int j = 0, q = Slink;
+    while (q != -1 &amp;&amp; j &lt; i-1) {        //找第i-1个元素
+        q = Space.Nodes[q].link;
+        j++;
+    }
+    if (q == -1 || i &lt; 1) return 0;        //插入位置i错误
+    if (Space.newptr != -1) {            //分配结点
+        p = Space.newptr;    
+        Space.newptr = Space.Nodes[Space.newptr].link;
+    } else return 0;                    //备用链表空
+    Space.Nodes[p].data = x;
+    Space.Nodes[p].link = Space.Nodes[q].link;
+    Space.Nodes[q].link = p;            //插入
+    return 1;
+}
+</code></pre><h2 id="删除指定下标的元素-4"><a href="#删除指定下标的元素-4" class="headerlink" title="删除指定下标的元素"></a>删除指定下标的元素</h2><pre><code>int ListDelete(SLinkList &amp;Space, int Slink, int i)
+{//在带头结点的静态链表删除第i个元素结点，删除成功返回1，否则返回0
+    int p = Slink, j = 0;
+    while (p != -1 &amp;&amp; j &lt; i-1) {
+        p = Space.Nodes[p].link;
+        j++;
+    }
+    if (p == -1 || Space.Nodes[p].link == -1 || i &lt; 1) return 0; //找不到结点
+    int q = Space.Nodes[p].link;                //准备删除第i个元素结点
+    Space.Nodes[p].link = Space.Nodes[q].link;
+    Space.Nodes[q].link = Space.newptr;            //释放，链入备用链表表头
+    Space.newptr = q;
+    return 1;
+}
+</code></pre><h1 id="带头结点的双向循环链表"><a href="#带头结点的双向循环链表" class="headerlink" title="带头结点的双向循环链表"></a><a href="线性表结构和操作.md#结构">带头结点的双向循环链表</a></h1><h2 id="结构定义-5"><a href="#结构定义-5" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef int ListData;
+typedef struct dnode {
+    ListData data;
+    struct dnode *prior, *next;
+}DblNode;
+typedef DblNode *DblList;
+</code></pre><h2 id="初始化表为空表-5"><a href="#初始化表为空表-5" class="headerlink" title="初始化表为空表"></a>初始化表为空表</h2><pre><code>void InitList(DblList &amp;first)
+{//初始化带头结点的双向循环链表first
+    first = (DblNode *)malloc(sizeof(DblNode));
+    if (!first) {
+        printf(&quot;存储分配错\n&quot;);
+        exit(1);
+    }
+    first-&gt;prior = first-&gt;next = first;    //表头结点的链指针指向自己
+}
+</code></pre><h2 id="销毁表-5"><a href="#销毁表-5" class="headerlink" title="销毁表"></a>销毁表</h2><pre><code>void DestroyList(DblList &amp;first) 
+{
+    DblList q,p = first-&gt;next;
+    while (p!=first){
+        q=p-&gt;next;
+        free(p);
+        p=q;
+    }
+    free(first);
+    first=NULL;
+}
+</code></pre><h2 id="清空表-5"><a href="#清空表-5" class="headerlink" title="清空表"></a>清空表</h2><pre><code>void ClearList(DblList first)
+{
+    DblList q,p=first-&gt;next;
+    while(p!=first){
+        q=p-&gt;next;
+        free(p);
+        p=q;
+    }
+    first-&gt;next=first-&gt;prior=first;
+}
+</code></pre><h2 id="判断表是否为空-4"><a href="#判断表是否为空-4" class="headerlink" title="判断表是否为空"></a>判断表是否为空</h2><pre><code>int ListEmpty(DblList first){
+    if(first-&gt;next==first&amp;&amp;first-&gt;prior==first)
+        return 1;
+    else
+        return 0;
+}
+</code></pre><p>##获取表的长度<br>    int ListLength(DblList first)<br>    {//计算带头结点的双向循环链表的长度<br>        DblNode *p = first-&gt;next;<br>        int count = 0;<br>        while (p != first) {<br>            p = p-&gt;next;<br>            count;<br>        }<br>        return count;<br>    }</p>
+<h2 id="获取指定下标的元素-5"><a href="#获取指定下标的元素-5" class="headerlink" title="获取指定下标的元素"></a>获取指定下标的元素</h2><pre><code>ListData GetElem(DblList first, int i)
+{ 
+    int j = 1;
+    DblList p = first-&gt;next;
+    while (p != first&amp;&amp; j&lt;i) {
+        p = p-&gt;next;
+        j++;
+    }
+    if (p == first|| j &gt; i)
+        return NULL;
+    return p-&gt;data;
+}
+</code></pre><h2 id="获取指定元素的下标-5"><a href="#获取指定元素的下标-5" class="headerlink" title="获取指定元素的下标"></a>获取指定元素的下标</h2><pre><code>DblNode* LocateElem(DblList first, ListData x) 
+{
+    DblList p = first-&gt;next;
+    while (p!=first &amp;&amp; (p-&gt;data != x))
+         p = p-&gt;next;
+    return p;     
+}
+</code></pre><h2 id="判断元素是否在表中-5"><a href="#判断元素是否在表中-5" class="headerlink" title="判断元素是否在表中"></a>判断元素是否在表中</h2><pre><code>int IsIn(DblList first,ListData x)
+{
+    DblList p = first-&gt;next;
+    while(p!=first &amp;&amp; (p-&gt;data!=x))
+        p=p-&gt;next;
+    return !(p==NULL);
+}
+</code></pre><h2 id="获取直接后继-5"><a href="#获取直接后继-5" class="headerlink" title="获取直接后继"></a>获取直接后继</h2><pre><code>DblList NextElem(DblList first, ListData x)
+{
+    DblList p = first-&gt;next;
+    while (p != first &amp;&amp; p-&gt;data != x) {
+        p = p-&gt;next;
+    }
+    return p;
+}
+</code></pre><h2 id="获取直接前驱-5"><a href="#获取直接前驱-5" class="headerlink" title="获取直接前驱"></a>获取直接前驱</h2><pre><code>DblList PriorElem(DblList first, ListData x)
+{ 
+    DblList p = first-&gt;next;
+    while (p != first &amp;&amp; p-&gt;next != first &amp;&amp; (p-&gt;next-&gt;data != x))
+        p = p-&gt;next;
+    if !p return NULL;    //没有直接前驱
+    return p;
+}
+</code></pre><h2 id="在指定下标之前插入元素-5"><a href="#在指定下标之前插入元素-5" class="headerlink" title="在指定下标之前插入元素"></a>在指定下标之前插入元素</h2><pre><code>int ListInsert(DblList &amp;first, int i, ListData X)
+{//在带头结点的双向循环first的第i个结点前插入x
+    DblNode *p = LocateElem4(first, i-1);    //指针定位到插入位置
+    if (p == first &amp;&amp; i != 1) return 0;
+    DblNode *q = (DblNode *)malloc(sizeof(DblNode));    //分配结点
+    q-&gt;data = x;
+    q-&gt;prior = p;
+    q-&gt;next = p-&gt;next;
+    p-&gt;next = q;
+    p-&gt;next-&gt;prior = q;
+    return 1;
+}
+</code></pre><h2 id="删除指定下标的元素-5"><a href="#删除指定下标的元素-5" class="headerlink" title="删除指定下标的元素"></a>删除指定下标的元素</h2><pre><code>int ListDelete(DblList &amp;first, int i)
+{//在带头结点的双向链表first中删除第i个结点
+    DblNode *p = LocateElem4(first, i);        //指针定位于删除结点的位置
+    if (p == first) return 0;
+    p-&gt;next-&gt;prior = p-&gt;prior;
+    p-&gt;prior-&gt;next = p-&gt;next;
+    free(p);
+    return 1;
+}
+</code></pre>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/boxytt" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 boxytt<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
