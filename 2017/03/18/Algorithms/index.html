@@ -205,8 +205,8 @@
 <li>在指定下标之前插入元素</li>
 <li>删除指定下标的元素</li>
 </ul>
-<p></p><p></p><p></p>
-<h1 id="静态存储顺序表"><a href="#静态存储顺序表" class="headerlink" title="静态存储顺序表"></a>静态存储顺序表</h1><h2 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;      
+<p><br><br></p>
+<h1 id="静态存储顺序表"><a href="#静态存储顺序表" class="headerlink" title="静态存储顺序表"></a><font color="#0099ff" size="7" face="黑体">静态存储顺序表</font></h1><h2 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;      
 #define ListSize 100    //最大允许长度
 typedef struct {
     Listata data[ListSize];    //存储空间
@@ -288,8 +288,8 @@ typedef struct {
     L.length--;
     return 1;
 }
-</code></pre><p></p><p></p><p></p>
-<h1 id="动态存储顺序表"><a href="#动态存储顺序表" class="headerlink" title="动态存储顺序表"></a>动态存储顺序表</h1><h2 id="结构定义-1"><a href="#结构定义-1" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>#define LIST_INIT_SIZE 10     //线性表存储空间的初始分配量
+</code></pre><p><br><br></p>
+<h1 id="动态存储顺序表"><a href="#动态存储顺序表" class="headerlink" title="动态存储顺序表"></a><font color="#0099ff" size="7" face="黑体">动态存储顺序表</font></h1><h2 id="结构定义-1"><a href="#结构定义-1" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>#define LIST_INIT_SIZE 10     //线性表存储空间的初始分配量
 #define LISTINCREMENT 5        //线性表存储空间的分配增量
 typedef struct {
     ListData *data;        //存储空间基址
@@ -387,8 +387,8 @@ typedef struct {
     L.length--;
     return 1;
 }
-</code></pre><p></p><p></p><p></p>
-<h1 id="不带头结点的单链表"><a href="#不带头结点的单链表" class="headerlink" title="不带头结点的单链表"></a>不带头结点的单链表</h1><h2 id="结构定义-2"><a href="#结构定义-2" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;    
+</code></pre><p><br><br></p>
+<h1 id="不带头结点的单链表"><a href="#不带头结点的单链表" class="headerlink" title="不带头结点的单链表"></a><font color="#0099ff" size="7" face="黑体">不带头结点的单链表</font></h1><h2 id="结构定义-2"><a href="#结构定义-2" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;    
 typedef struct node {            //链表结点
     ListData data;                //结点数据域
     struct node *next;            //结点链域
@@ -518,8 +518,8 @@ typedef ListNode *LinkList;        //链表头指针
     free(q);
     return 1;
 }
-</code></pre><p></p><p></p>    <p></p>
-<h1 id="带头结点的单链表"><a href="#带头结点的单链表" class="headerlink" title="带头结点的单链表"></a>带头结点的单链表</h1><h2 id="结构定义-3"><a href="#结构定义-3" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;    
+</code></pre><p><br><br></p>
+<h1 id="带头结点的单链表"><a href="#带头结点的单链表" class="headerlink" title="带头结点的单链表"></a><font color="#0099ff" size="7" face="黑体">带头结点的单链表</font></h1><h2 id="结构定义-3"><a href="#结构定义-3" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef char ListData;    
 typedef struct node {            //链表结点
     ListData data;                //结点数据域
     struct node *next;            //结点链域
@@ -639,8 +639,8 @@ int ListLength(LinkList first)
     free(q);
     return 1;
 }
-</code></pre><p></p><p></p>    <p></p>
-<h1 id="带头结点的静态链表"><a href="#带头结点的静态链表" class="headerlink" title="带头结点的静态链表"></a>带头结点的静态链表</h1><h2 id="结构定义-4"><a href="#结构定义-4" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>const int MaxSize = 100;    //静态链表大小
+</code></pre><p><br><br></p>
+<h1 id="带头结点的静态链表"><a href="#带头结点的静态链表" class="headerlink" title="带头结点的静态链表"></a><font color="#0099ff" size="7" face="黑体">带头结点的静态链表</font></h1><h2 id="结构定义-4"><a href="#结构定义-4" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>const int MaxSize = 100;    //静态链表大小
 
 typedef struct node {        //静态链表结点
     ListData data;
@@ -770,8 +770,8 @@ void InitList(SLinkList &amp;Space, int &amp;Slink)
     Space.newptr = q;
     return 1;
 }
-</code></pre><p></p><p></p><p></p>
-<h1 id="带头结点的双向循环链表"><a href="#带头结点的双向循环链表" class="headerlink" title="带头结点的双向循环链表"></a>带头结点的双向循环链表</h1><h2 id="结构定义-5"><a href="#结构定义-5" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef int ListData;
+</code></pre><p><br><br></p>
+<h1 id="带头结点的双向循环链表"><a href="#带头结点的双向循环链表" class="headerlink" title="带头结点的双向循环链表"></a><font color="#0099ff" size="7" face="黑体">带头结点的双向循环链表</font></h1><h2 id="结构定义-5"><a href="#结构定义-5" class="headerlink" title="结构定义"></a>结构定义</h2><pre><code>typedef int ListData;
 typedef struct dnode {
     ListData data;
     struct dnode *prior, *next;
