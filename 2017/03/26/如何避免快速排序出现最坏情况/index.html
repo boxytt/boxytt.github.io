@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="快速排序出现最坏情况时，时间复杂度T(n) = O(n^2)：1. 数组已经排好序（升序或者逆序）这种情况，挑选了第一个元素为划分元素，那么划分元素就是数组中最大的或者是最小的，n划分成1和n-1。时间复杂度T(n)=T(n-1)+T(1)+θ(n)，根据递归公式求得T(n)=O(n^2)，和冒泡排">
+    
 
     <!--Author-->
     
@@ -18,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="kt&#39;s blog"/>
+        <meta property="og:title" content="如何避免快速排序出现最坏情况?"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +31,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2017/3 - kt&#39;s blog</title>
+    <title>如何避免快速排序出现最坏情况? - kt&#39;s blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -128,102 +130,62 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home.png')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2017/3</h1>
+                <div class="post-heading">
+                    <h1>如何避免快速排序出现最坏情况?</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-03-26
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/03/26/如何避免快速排序出现最坏情况/">
-        <h1 class="post-title archive">
-            如何避免快速排序出现最坏情况?
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-26
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="快速排序出现最坏情况时，时间复杂度T-n-O-n-2-："><a href="#快速排序出现最坏情况时，时间复杂度T-n-O-n-2-：" class="headerlink" title="快速排序出现最坏情况时，时间复杂度T(n) = O(n^2)："></a>快速排序出现最坏情况时，时间复杂度T(n) = O(n^2)：</h2><h3 id="1-数组已经排好序（升序或者逆序）"><a href="#1-数组已经排好序（升序或者逆序）" class="headerlink" title="1. 数组已经排好序（升序或者逆序）"></a>1. 数组已经排好序（升序或者逆序）</h3><pre><code>这种情况，挑选了第一个元素为划分元素，那么划分元素就是数组中最大的或者是最小的，n划分成1和n-1。时间复杂度T(n)=T(n-1)+T(1)+θ(n)，根据递归公式求得T(n)=O(n^2)，和冒泡排序一样。 
+</code></pre><h3 id="2-数组所有元素都是重复的"><a href="#2-数组所有元素都是重复的" class="headerlink" title="2. 数组所有元素都是重复的"></a>2. 数组所有元素都是重复的</h3><pre><code>这种情况和第一种情况一样，也是划分成1和n-1，时间复杂度T(n)=O(n^2)
+</code></pre><hr>
+<p><br></p>
+<h2 id="优化快排排序，使时间复杂度不超过O-nlogn-："><a href="#优化快排排序，使时间复杂度不超过O-nlogn-：" class="headerlink" title="优化快排排序，使时间复杂度不超过O(nlogn)："></a>优化快排排序，使时间复杂度不超过O(nlogn)：</h2><h3 id="1-针对第一种情况，有两种方法：①-随机挑选划分元素；②打乱数组的顺序。"><a href="#1-针对第一种情况，有两种方法：①-随机挑选划分元素；②打乱数组的顺序。" class="headerlink" title="1. 针对第一种情况，有两种方法：① 随机挑选划分元素；②打乱数组的顺序。"></a>1. 针对第一种情况，有两种方法：① 随机挑选划分元素；②打乱数组的顺序。</h3><pre><code>我们一般的快排算法都是挑选第一个或者最后一个元素作为划分元素，如果是挑选随机位置的元素，就避免了最坏情况的第一种。或者在数组划分前，先打乱数组的顺序，也可以达到同样效果。
+</code></pre><h3 id="2-针对第二种情况，使用三向切分快速排序。"><a href="#2-针对第二种情况，使用三向切分快速排序。" class="headerlink" title="2. 针对第二种情况，使用三向切分快速排序。"></a>2. 针对第二种情况，使用三向切分快速排序。</h3><pre><code>如果数组有大量的重复元素，那么快速排序效率会大大降低，划分的效果不理想，因为一般的快排算法每次判断到相等时都会交换，这时可以用三向切分快速排序。如果全部元素都是重复的，三向切分快速的时间复杂度为O(n)。
+</code></pre>
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/03/22/《编程珠玑》第一部分-基础/">
-        <h1 class="post-title archive">
-            《编程珠玑》第一部分 基础
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-22
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/03/18/Algorithms/">
-        <h1 class="post-title archive">
-            线性表结构和操作
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-18
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/03/10/常用开发工具平台-第三方库/">
-        <h1 class="post-title archive">
-            常用开发工具平台&第三方库
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-10
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/03/09/hello-world/">
-        <h1 class="post-title archive">
-            Hello World
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-03-09
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
