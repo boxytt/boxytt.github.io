@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="线性表的两种物理存储结构：顺序存储结构和链式存储结构顺序存储结构静态顺序表(1)存和读 O(1)  
+(2)插入和删除 O(n)  
+(3)适用于不经常插入和删除元素的存储  
+  
+结构定义#define MAXSIZE 20
+typedef int ElemType;
+typedef struc">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="boxytt">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="线性表 - 数据结构和算法"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="kt&#39;s blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>线性表 - 数据结构和算法 - kt&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/img/favicon.png">
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">kt404.cn</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/EasierInSTU">
+                            
+                                EasierInSTU
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>线性表 - 数据结构和算法</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-03-30
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="线性表的两种物理存储结构：顺序存储结构和链式存储结构"><a href="#线性表的两种物理存储结构：顺序存储结构和链式存储结构" class="headerlink" title="线性表的两种物理存储结构：顺序存储结构和链式存储结构"></a>线性表的两种物理存储结构：顺序存储结构和链式存储结构</h2><h1 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h1><h2 id="静态顺序表"><a href="#静态顺序表" class="headerlink" title="静态顺序表"></a>静态顺序表</h2><pre><code>(1)存和读 O(1)  
+(2)插入和删除 O(n)  
+(3)适用于不经常插入和删除元素的存储  
+</code></pre><p><img src="/images/顺序表.png" alt="“顺序表”">  </p>
+<h3 id="结构定义"><a href="#结构定义" class="headerlink" title="结构定义"></a>结构定义</h3><pre><code>#define MAXSIZE 20
+typedef int ElemType;
+typedef struct {
+ElemType data[MAXSIZE];    // 存储空间
+int length;    // 当前元素个数
+} SqList;
+</code></pre><h3 id="用e返回L中第i个元素的值"><a href="#用e返回L中第i个元素的值" class="headerlink" title="用e返回L中第i个元素的值"></a>用e返回L中第i个元素的值</h3><pre><code>Status GetElem(SqList L, int i, ElemType *e) 
+{    
+    if (L.length == 0 || i &lt; 1 || i &gt; L.length) {
+        return ERROR;
+    }
+    *e = L.data[i-1];
+    return OK;
+}
+</code></pre><h3 id="在顺序表第i个位置之前插入元素e"><a href="#在顺序表第i个位置之前插入元素e" class="headerlink" title="在顺序表第i个位置之前插入元素e"></a>在顺序表第i个位置之前插入元素e</h3><pre><code>Status ListInsert(SqList *L, int i, ElemType e)
+{    
+    if (L.length == MAXSIZE) {
+        return ERROR; // 已满，插不了
+    }
+
+    if (i &lt; 1 || i &gt; L.length) {
+        return ERROR; // i不符合条件 
+    }
+
+    if (i &lt;= L.length) {    //插入位置不在表尾
+        for (int j = L.length; j &gt; i-1; j--) {
+                L.data[j] = L.data[j - 1];
+        }
+    }
+
+    L.data[i - 1] = e;
+    L.length++;
+
+    return OK;
+}
+</code></pre><h3 id="删除顺序表L的第i个元素结点，并用e返回其值"><a href="#删除顺序表L的第i个元素结点，并用e返回其值" class="headerlink" title="删除顺序表L的第i个元素结点，并用e返回其值"></a>删除顺序表L的第i个元素结点，并用e返回其值</h3><pre><code>Status ListDelete(SqList *L, int i, ElemType *e)
+{    
+    if (L.length == 0) {
+        return ERROR; //没有元素
+    }
+
+    if (i &lt; 1 || i &gt; L.length) {
+        return ERROR; // i不符合条件 
+    }
+
+     *e = L.data[i-1];
+
+    if (i &lt;= L.length) {    //插入位置不在表尾
+        for (int j = i; j &lt; L.length; j++) {
+                L.data[j - 1] = L.data[j];
+        }
+    }
+
+    L.length--;
+
+    return OK;
+}
+</code></pre><p><br></p>
+<h1 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h1><h2 id="带头结点的单链表"><a href="#带头结点的单链表" class="headerlink" title="带头结点的单链表"></a>带头结点的单链表</h2><pre><code>1.适用于频繁插入、删除结点
+2.事先不知道线性表的长度
+</code></pre><p><img src="/images/单链表.png" alt="“单链表”">  </p>
+<h3 id="结构定义-1"><a href="#结构定义-1" class="headerlink" title="结构定义"></a>结构定义</h3><pre><code>typedef int ElemType;
+typedef struct Node {
+    ElemType data; //数据域
+    struct Node* next; //指针域
+} Node;
+typedef struct Node* LinkList;
+</code></pre><h3 id="获取链表L的第i个元素的值，赋给e"><a href="#获取链表L的第i个元素的值，赋给e" class="headerlink" title="获取链表L的第i个元素的值，赋给e"></a>获取链表L的第i个元素的值，赋给e</h3><pre><code>Status GetElem(LinkList L, int i, ElemType *e) 
+{    
+    int j = 1;
+    LinkList p = L-&gt;next;
+
+    while (p &amp;&amp; j&lt;i) {
+        p = p-&gt;next;
+        j++;
+    }
+
+    if (!p || j&gt;i) {
+        return ERROR;
+    }
+
+    *e = p-&gt;data;
+    return OK;
+}
+</code></pre><h3 id="在链表L的第i个位置之前插入新的元素e"><a href="#在链表L的第i个位置之前插入新的元素e" class="headerlink" title="在链表L的第i个位置之前插入新的元素e"></a>在链表L的第i个位置之前插入新的元素e</h3><pre><code>Status ListInsert(LinkList *L, int i, ElemType e) 
+{    
+    int j = 1;
+    LinkList p, s;
+    p = （*L)-&gt;next;
+
+    while (p &amp;&amp; j&lt;i-1) {  // 找到第i-1个结点
+        p = p-&gt;next;
+        j++;
+    }
+
+    if (!p || i&lt;1) {
+        return ERROR;
+    }
+
+    s = (LinkList)malloc(sizeof(Node));
+    s-&gt;data = e;
+
+    s-&gt;next = p-&gt;next;    // 将s插到第i-1个结点后，即第i个结点之前
+    p-&gt;next = s;
+
+    return OK;
+}
+</code></pre><h3 id="删除链表L的第i个元素，L的长度减1"><a href="#删除链表L的第i个元素，L的长度减1" class="headerlink" title="删除链表L的第i个元素，L的长度减1"></a>删除链表L的第i个元素，L的长度减1</h3><pre><code>Status ListDelete(LinkList *L, int i, ElemType *e) 
+{    
+    int j = 1;
+    LinkList p, q;
+    p = (*L)-&gt;next;
+
+    while (p &amp;&amp; j&lt;i-1) { // 找到第i-1个结点
+        p = p-&gt;next;
+        j++;
+    }
+
+    if (!p || !(p-&gt;next) || i&lt;1 ) {
+        return ERROR;
+    }
+
+    q = p-&gt;next;
+    p-&gt;next = q-&gt;next;
+
+    *e = q-&gt;data;
+    free(q);
+
+    return OK;
+}
+</code></pre><h3 id="头插法建立单链表"><a href="#头插法建立单链表" class="headerlink" title="头插法建立单链表"></a>头插法建立单链表</h3><pre><code>void CreateListHead(LinkList *L, int n) 
+{        LinkList p;
+
+    *L = (LinkList)malloc(sizeof(Node));
+    (*L)-&gt;next = NULL;
+
+    for (int i = 0; i &lt; n; ++i) {
+        p = (LinkList)malloc(sizeof(Node));
+        p-&gt;data = rand() % 100 + 1;   // 生成0-100的随机数
+
+        p-&gt;next = (*L)-&gt;next;
+        (*L)-&gt;next = p;
+    }
+
+}
+</code></pre><h3 id="尾插法建立单链表"><a href="#尾插法建立单链表" class="headerlink" title="尾插法建立单链表"></a>尾插法建立单链表</h3><pre><code>void CreateListTail(LinkList *L, int n) 
+{    
+    LinkList p, r;
+
+    *L = (LinkList)malloc(sizeof(Node));
+    r = *L;  // 空表，所以尾指针指向头指针
+
+    for (int i = 0; i &lt; n; ++i) {
+        p = (LinkList)malloc(sizeof(Node));
+        p-&gt;data = rand() % 100 + 1;   // 生成0-100的随机数
+
+        r-&gt;next = p;
+        r = p;
+    }
+
+}
+</code></pre><h3 id="清空单链表"><a href="#清空单链表" class="headerlink" title="清空单链表"></a>清空单链表</h3><pre><code>Status ClearList(LinkList *L)
+{    
+    LinkList p, q;
+    p = (*L)-&gt;next;
+
+    while (p) {
+        q = p-&gt;next;
+        free(p);
+        p = q;
+    }
+
+    (*L)-&gt;next = NULL;
+
+    return OK;
+}    
+</code></pre><p><br></p>
+<h2 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h2><pre><code>1.数组的第一个和最后一个元素的data不存放数据；
+2.把未使用的数组元素称为备用链表
+3.数组的第一个元素，即下标为0的那个元素的cur存放备用链表的第一个结点的下标
+4.数组的最后一个元素，即下标为MAXSIZE-1的cur则存放第一个有数值的元素的下标，相当于但链表的头结点
+</code></pre><p><img src="/images/静态链表.png" alt="“静态链表”">  </p>
+<h3 id="结构定义-2"><a href="#结构定义-2" class="headerlink" title="结构定义"></a>结构定义</h3><pre><code>#define MAXSIZE 1000
+typedef struct {
+    ElemType data; //数据
+    int cur;        //游标cursor
+}Component, StaticLinkList[MAXSIZE];
+</code></pre><h3 id="初始化静态链表，相当于初始化数组"><a href="#初始化静态链表，相当于初始化数组" class="headerlink" title="初始化静态链表，相当于初始化数组"></a>初始化静态链表，相当于初始化数组</h3><pre><code>Status InitList(StaticLinkList space)
+{    
+    for (int i = 0; i &lt; MAXSIZE-1; ++i) {
+        space[i].cur = i+1;
+    }
+    space[MAXSIZE-1].cur = 0;
+
+    return OK;
+}
+</code></pre><h3 id="获取空闲分量的下标"><a href="#获取空闲分量的下标" class="headerlink" title="获取空闲分量的下标"></a>获取空闲分量的下标</h3><pre><code>int Malloc_SLL(StaticLinkList space)
+{
+    int i = space[0].cur;
+    if (space[0].cur) {
+        space[0].cur = space[i].cur;
+        //把它的下一个分量用来作为备用
+    }
+    return i;
+}
+</code></pre><p><br></p>
+<h2 id="带头结点的双向循环链表"><a href="#带头结点的双向循环链表" class="headerlink" title="带头结点的双向循环链表"></a>带头结点的双向循环链表</h2><p>typedef int ListData;<br>typedef struct dnode {<br>    ListData data;<br>    struct dnode <em>prior, </em>next;<br>}DblNode;<br>typedef DblNode *DblList;</p>
+<p>Status InitList(DblList <em>L)<br>{//初始化带头结点的双向循环链表first<br>    L = (DblNode </em>)malloc(sizeof(DblNode));<br>    if (!L) {<br>        return ERROR;<br>    }<br>    (<em>L)-&gt;prior = (</em>L)-&gt;next = *first;    //表头结点的链指针指向自己<br>}    </p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/boxytt" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 boxytt<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
