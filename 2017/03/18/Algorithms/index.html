@@ -813,8 +813,17 @@ typedef DblNode *DblList;
     else
         return 0;
 }
-</code></pre><p>##获取表的长度<br>    int ListLength(DblList first)<br>    {//计算带头结点的双向循环链表的长度<br>        DblNode *p = first-&gt;next;<br>        int count = 0;<br>        while (p != first) {<br>            p = p-&gt;next;<br>            count;<br>        }<br>        return count;<br>    }</p>
-<h2 id="获取指定下标的元素-5"><a href="#获取指定下标的元素-5" class="headerlink" title="获取指定下标的元素"></a>获取指定下标的元素</h2><pre><code>ListData GetElem(DblList first, int i)
+</code></pre><h2 id="获取表的长度-4"><a href="#获取表的长度-4" class="headerlink" title="获取表的长度"></a>获取表的长度</h2><pre><code>int ListLength(DblList first)
+{//计算带头结点的双向循环链表的长度
+    DblNode *p = first-&gt;next;
+    int count = 0;
+    while (p != first) {
+        p = p-&gt;next;
+        count;
+    }
+    return count;
+}
+</code></pre><h2 id="获取指定下标的元素-5"><a href="#获取指定下标的元素-5" class="headerlink" title="获取指定下标的元素"></a>获取指定下标的元素</h2><pre><code>ListData GetElem(DblList first, int i)
 { 
     int j = 1;
     DblList p = first-&gt;next;
