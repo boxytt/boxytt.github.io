@@ -10,6 +10,15 @@
 
     <!--Description-->
     
+        <meta name="description" content="Book.swiftimport UIKit
+
+class Book: NSObject {    
+    var title = &amp;quot;&amp;quot;
+    var subtitle = &amp;quot;&amp;quot;
+    var image = &amp;quot;&amp;quot;
+
+    init">
+    
 
     <!--Author-->
     
@@ -18,7 +27,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="kt&#39;s blog"/>
+        <meta property="og:title" content="[Swift]Alamofire &amp; SwiftyJSON处理网络请求"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +38,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +49,7 @@
 
     <!-- Title -->
     
-    <title>kt&#39;s blog</title>
+    <title>[Swift]Alamofire &amp; SwiftyJSON处理网络请求 - kt&#39;s blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -129,126 +138,138 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('/img/home.png')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>kt's blog</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>[Swift]Alamofire & SwiftyJSON处理网络请求</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-03-30
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2017/03/30/Swift-Alamofire-SwiftyJSON处理网络请求/">
-        <h2 class="post-title">
-            [Swift]Alamofire & SwiftyJSON处理网络请求
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/30/python3-urllib-request网络请求异常处理/">
-        <h2 class="post-title">
-            python3 urllib.request网络请求异常处理
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/26/如何避免快速排序出现最坏情况/">
-        <h2 class="post-title">
-            如何避免快速排序出现最坏情况?
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-26
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/22/《编程珠玑》第一部分-基础/">
-        <h2 class="post-title">
-            《编程珠玑》第一部分 基础
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/10/常用开发工具平台-第三方库/">
-        <h2 class="post-title">
-            常用开发工具平台&第三方库
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-10
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/09/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-09
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-    
-</ul>
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="Book-swift"><a href="#Book-swift" class="headerlink" title="Book.swift"></a>Book.swift</h3><pre><code>import UIKit
+
+class Book: NSObject {    
+    var title = &quot;&quot;
+    var subtitle = &quot;&quot;
+    var image = &quot;&quot;
+
+    init(title: String, subtitle: String, image: String) {
+        self.title = title
+        self.subtitle = subtitle
+        self.image = image
+    }
+}
+</code></pre><h3 id="ViewController-swift"><a href="#ViewController-swift" class="headerlink" title="ViewController.swift"></a>ViewController.swift</h3><pre><code>import UIKit
+import Alamofire
+import SwiftyJSON
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var tableView: UITableView!
+
+    let URLString = &quot;https://api.douban.com/v2/book/search&quot;
+    var books = [Book]()    // 数据源
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+
+        HTTPRequest()
+    }
+
+    // MARK: 下载解析数据
+    func HTTPRequest() {
+
+        Alamofire.request(URLString, method: .get, parameters: [&quot;tag&quot;:&quot;Swift&quot;,&quot;count&quot;:10]).validate().responseJSON { (resp) in
+
+            // 有错误就打印错误，没有就解析数据
+            if let error = resp.result.error {
+                print(error)
+            } else if let value = resp.result.value {
+                // 用 SwiftyJSON 解析数据
+                let jsonArray = JSON(value)[&quot;books&quot;].array
+
+                for json in jsonArray! {
+                    let title = json[&quot;title&quot;].string ?? &quot;&quot;
+                    let subtitle = json[&quot;subtitle&quot;].string ?? &quot;&quot;
+                    let image = json[&quot;image&quot;].string ?? &quot;&quot;
+                    let book = Book(title: title, subtitle: subtitle, image: image)
+                    self.books.append(book)
+                }        
+
+                self.tableView.reloadData()
+            }
+        }
+
+    }
+
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: &quot;Cell&quot;)!
+
+        let book = books[indexPath.row]
+        cell.textLabel?.text = book.title as! String
+        cell.detailTextLabel?.text = book.subtitle as! String
+        cell.imageView?.kf_setImage(with: URL(string: book.image) ?? URL(string:&quot;&quot;), placeholder: UIImage(named: &quot;AppIcon180&quot;)) 
+        return cell
+    }
+
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        return books.count
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
+}
+</code></pre>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />

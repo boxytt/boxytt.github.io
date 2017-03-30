@@ -10,6 +10,14 @@
 
     <!--Description-->
     
+        <meta name="description" content="处理异常的写法from urllib.request import Request, url open
+from urllib.error import URLError
+
+req = Request(someurl)
+try:
+    response = urlopen(req)
+except ">
+    
 
     <!--Author-->
     
@@ -18,7 +26,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="kt&#39;s blog"/>
+        <meta property="og:title" content="python3 urllib.request网络请求异常处理"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +37,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +48,7 @@
 
     <!-- Title -->
     
-    <title>kt&#39;s blog</title>
+    <title>python3 urllib.request网络请求异常处理 - kt&#39;s blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -129,126 +137,70 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('/img/home.png')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>kt's blog</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>python3 urllib.request网络请求异常处理</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-03-30
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2017/03/30/Swift-Alamofire-SwiftyJSON处理网络请求/">
-        <h2 class="post-title">
-            [Swift]Alamofire & SwiftyJSON处理网络请求
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/30/python3-urllib-request网络请求异常处理/">
-        <h2 class="post-title">
-            python3 urllib.request网络请求异常处理
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-30
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/26/如何避免快速排序出现最坏情况/">
-        <h2 class="post-title">
-            如何避免快速排序出现最坏情况?
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-26
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/22/《编程珠玑》第一部分-基础/">
-        <h2 class="post-title">
-            《编程珠玑》第一部分 基础
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/10/常用开发工具平台-第三方库/">
-        <h2 class="post-title">
-            常用开发工具平台&第三方库
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-10
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2017/03/09/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2017-03-09
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-    
-</ul>
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="处理异常的写法"><a href="#处理异常的写法" class="headerlink" title="处理异常的写法"></a>处理异常的写法</h3><pre><code>from urllib.request import Request, url open
+from urllib.error import URLError
+
+req = Request(someurl)
+try:
+    response = urlopen(req)
+except URLError as e:
+    if hasattr(e, ‘reason’):
+        print(‘We failed to reach a server.’)
+        print(‘Reason: ’, e.reason)
+    elif hasattr(e, ‘code’):
+        print(‘The server couldn\’t fulfill the request.’)
+        print(‘Error code: ’, e.code)
+else:
+    #everything is fine
+</code></pre>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
