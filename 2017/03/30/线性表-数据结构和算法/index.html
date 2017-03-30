@@ -10,13 +10,13 @@
 
     <!--Description-->
     
-        <meta name="description" content="线性表的两种物理存储结构：顺序存储结构和链式存储结构顺序存储结构静态顺序表(1)存和读 O(1)  
+        <meta name="description" content="线性表两种物理存储结构：顺序存储结构和链式存储结构顺序存储结构静态顺序表(1)存和读 O(1)  
 (2)插入和删除 O(n)  
 (3)适用于不经常插入和删除元素的存储  
   
 结构定义#define MAXSIZE 20
 typedef int ElemType;
-typedef struc">
+typedef struct">
     
 
     <!--Author-->
@@ -170,7 +170,7 @@ typedef struc">
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="线性表的两种物理存储结构：顺序存储结构和链式存储结构"><a href="#线性表的两种物理存储结构：顺序存储结构和链式存储结构" class="headerlink" title="线性表的两种物理存储结构：顺序存储结构和链式存储结构"></a>线性表的两种物理存储结构：顺序存储结构和链式存储结构</h2><h1 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h1><h2 id="静态顺序表"><a href="#静态顺序表" class="headerlink" title="静态顺序表"></a>静态顺序表</h2><pre><code>(1)存和读 O(1)  
+                <h2 id="线性表两种物理存储结构：顺序存储结构和链式存储结构"><a href="#线性表两种物理存储结构：顺序存储结构和链式存储结构" class="headerlink" title="线性表两种物理存储结构：顺序存储结构和链式存储结构"></a>线性表两种物理存储结构：顺序存储结构和链式存储结构</h2><h1 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h1><h2 id="静态顺序表"><a href="#静态顺序表" class="headerlink" title="静态顺序表"></a>静态顺序表</h2><pre><code>(1)存和读 O(1)  
 (2)插入和删除 O(n)  
 (3)适用于不经常插入和删除元素的存储  
 </code></pre><p><img src="/images/顺序表.png" alt="“顺序表”">  </p>
@@ -372,16 +372,39 @@ typedef struct {
 }
 </code></pre><h3 id="获取空闲分量的下标"><a href="#获取空闲分量的下标" class="headerlink" title="获取空闲分量的下标"></a>获取空闲分量的下标</h3><pre><code>int Malloc_SLL(StaticLinkList space)
 {
-    int i = space[0].cur;
+    int i = space[0].cur; 
     if (space[0].cur) {
         space[0].cur = space[i].cur;
         //把它的下一个分量用来作为备用
     }
     return i;
 }
+</code></pre><h3 id="在静态链表L中第i个元素之前插入新的元素e"><a href="#在静态链表L中第i个元素之前插入新的元素e" class="headerlink" title="在静态链表L中第i个元素之前插入新的元素e"></a>在静态链表L中第i个元素之前插入新的元素e</h3><pre><code>Status ListInsert(StaticLinkList L, int i, ElemType e)
+{
+    int k = MAXSIZE - 1;  // 数组的最后一个元素
+
+    if (int i &lt; 1 || i &gt; ListLength(L) + 1) {
+        return ERROR;
+    }
+
+    int j = Malloc_SLL(L);    // 获取第一个空闲的分量的下标
+
+    if (j) {
+        L[j].data = e;
+        for (int l = 1; l &lt;= j - 1; l++) {
+            k = L[k].cur;
+        }
+        L[j].cur = L[k].cur;
+        L[k].cur = j;
+
+        return OK;
+    }
+
+    return OK;
+}
 </code></pre><p><br></p>
-<h2 id="带头结点的双向循环链表"><a href="#带头结点的双向循环链表" class="headerlink" title="带头结点的双向循环链表"></a>带头结点的双向循环链表</h2><p>typedef int ListData;<br>typedef struct dnode {<br>    ListData data;<br>    struct dnode <em>prior, </em>next;<br>}DblNode;<br>typedef DblNode *DblList;</p>
-<p>Status InitList(DblList <em>L)<br>{//初始化带头结点的双向循环链表first<br>    L = (DblNode </em>)malloc(sizeof(DblNode));<br>    if (!L) {<br>        return ERROR;<br>    }<br>    (<em>L)-&gt;prior = (</em>L)-&gt;next = *first;    //表头结点的链指针指向自己<br>}    </p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p>将单链表中终端结点的指针端由空指针改为指向头结点，就使整个单链表形成一个环，这种头尾相接的单链表成为单循环链表，简称循环链表。</p>
+<p>其实循环链表的单链表的主要差异就在于循环的判断空链表的条件上，原来判断head-&gt;next是否为null，现在则是head-&gt;next是否等于head。</p>
 
 
                 
