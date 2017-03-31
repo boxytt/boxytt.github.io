@@ -403,8 +403,9 @@ typedef struct {
     return OK;
 }
 </code></pre><p><br></p>
-<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p>将单链表中终端结点的指针端由空指针改为指向头结点，就使整个单链表形成一个环，这种头尾相接的单链表成为单循环链表，简称循环链表。</p>
-<p>其实循环链表的单链表的主要差异就在于循环的判断空链表的条件上，原来判断head-&gt;next是否为null，现在则是head-&gt;next是否等于head。</p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><pre><code>1.将单链表中终端结点的指针端由空指针改为指向头结点，就使整个单链表形成一个环，这种头尾相接的单链表成为单循环链表，简称循环链表。
+2.循环链表的单链表的主要差异就在于循环的判断空链表的条件上，原来判断head-&gt;next是否为null，现在则是head-&gt;next是否等于head。
+</code></pre><p><img src="/images/循环链表.png" alt="“循环链表”">  </p>
 
 
                 
