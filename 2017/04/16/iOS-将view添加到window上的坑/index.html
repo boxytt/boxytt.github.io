@@ -10,8 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="iOS开发中经常遇到这种情况：用一个透明或者暗透明view覆盖屏幕，比如progressHUD，这样做的话除了progressHUD视图之外的其他区域都不可点击。
-将emptyView添加到window上，覆盖住整个屏幕1[[UIApplication sharedApplication].dele">
+        <meta name="description" content="iOS开发中经常遇到这种情况：用一个透明或者暗透明view覆盖屏幕，比如progressHUD，这样做的话除了progressHUD视图之外的其他区域都不可点击。将emptyView添加到window上，覆盖住整个屏幕1[[UIApplication sharedApplication].deleg">
     
 
     <!--Author-->
@@ -165,11 +164,10 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>iOS开发中经常遇到这种情况：用一个透明或者暗透明view覆盖屏幕，比如progressHUD，这样做的话除了progressHUD视图之外的其他区域都不可点击。</p>
-<h2 id="将emptyView添加到window上，覆盖住整个屏幕"><a href="#将emptyView添加到window上，覆盖住整个屏幕" class="headerlink" title="将emptyView添加到window上，覆盖住整个屏幕"></a>将emptyView添加到window上，覆盖住整个屏幕</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication].delegate.window addSubview: emptyView];</div></pre></td></tr></table></figure>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication].keywindow addSubview: emptyView];</div></pre></td></tr></table></figure></p>
-<h2 id="通过tag获取emptyView和其Subview时，会遇到一个坑："><a href="#通过tag获取emptyView和其Subview时，会遇到一个坑：" class="headerlink" title="通过tag获取emptyView和其Subview时，会遇到一个坑："></a>通过tag获取emptyView和其Subview时，会遇到一个坑：</h2><p>这是通常的写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIView *emptyView = (UIView *)[self.view viewWithTag:001]; </div><div class="line">UIView *subView = (UIView *)[self.view viewWithTag:002];</div></pre></td></tr></table></figure></p>
-<p>然而在这里就有可能会出现bug，比如不能改变它们的属性活着将它们移除<br>所以应该像下面这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIView *emptyView = [[UIApplication sharedApplication].keyWindow viewWithTag:001];</div><div class="line">UIView *subView = (UIView *)[emptyView viewWithTag:002];</div></pre></td></tr></table></figure></p>
+                <h3 id="iOS开发中经常遇到这种情况：用一个透明或者暗透明view覆盖屏幕，比如progressHUD，这样做的话除了progressHUD视图之外的其他区域都不可点击。"><a href="#iOS开发中经常遇到这种情况：用一个透明或者暗透明view覆盖屏幕，比如progressHUD，这样做的话除了progressHUD视图之外的其他区域都不可点击。" class="headerlink" title="iOS开发中经常遇到这种情况：用一个透明或者暗透明view覆盖屏幕，比如progressHUD，这样做的话除了progressHUD视图之外的其他区域都不可点击。"></a>iOS开发中经常遇到这种情况：用一个透明或者暗透明view覆盖屏幕，比如progressHUD，这样做的话除了progressHUD视图之外的其他区域都不可点击。</h3><h2 id="将emptyView添加到window上，覆盖住整个屏幕"><a href="#将emptyView添加到window上，覆盖住整个屏幕" class="headerlink" title="将emptyView添加到window上，覆盖住整个屏幕"></a>将emptyView添加到window上，覆盖住整个屏幕</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication].delegate.window addSubview: emptyView];</div></pre></td></tr></table></figure>
+<h4 id="或者"><a href="#或者" class="headerlink" title="或者"></a>或者</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication].keywindow addSubview: emptyView];</div></pre></td></tr></table></figure>
+<h2 id="通过tag获取emptyView和其Subview时，会遇到一个坑："><a href="#通过tag获取emptyView和其Subview时，会遇到一个坑：" class="headerlink" title="通过tag获取emptyView和其Subview时，会遇到一个坑："></a>通过tag获取emptyView和其Subview时，会遇到一个坑：</h2><h4 id="这是通常的写法："><a href="#这是通常的写法：" class="headerlink" title="这是通常的写法："></a>这是通常的写法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIView *emptyView = (UIView *)[self.view viewWithTag:001]; </div><div class="line">UIView *subView = (UIView *)[self.view viewWithTag:002];</div></pre></td></tr></table></figure>
+<h4 id="然而在这里就有可能会出现bug，比如不能改变它们的属性活着将它们移除"><a href="#然而在这里就有可能会出现bug，比如不能改变它们的属性活着将它们移除" class="headerlink" title="然而在这里就有可能会出现bug，比如不能改变它们的属性活着将它们移除"></a>然而在这里就有可能会出现bug，比如不能改变它们的属性活着将它们移除</h4><h4 id="所以应该像下面这样写："><a href="#所以应该像下面这样写：" class="headerlink" title="所以应该像下面这样写："></a>所以应该像下面这样写：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIView *emptyView = [[UIApplication sharedApplication].keyWindow viewWithTag:001];</div><div class="line">UIView *subView = (UIView *)[emptyView viewWithTag:002];</div></pre></td></tr></table></figure>
 
 
                 
